@@ -1,0 +1,31 @@
+.card {
+  margin: 5px 0 5px;
+  position: relative;
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 15px;
+
+  &:hover {
+    box-shadow: 0px 2px 16px #dddddd;
+  }
+}
+
+.card_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card_header_time {
+  display: block;
+  font-size: 12px;
+  color: #8f9193;
+  text-decoration: none;
+}
+
+.content {
+  color: #323232;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+}

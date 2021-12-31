@@ -1,0 +1,24 @@
+.code_block {
+  position: relative;
+
+  select {
+    position: absolute;
+    right: 5px;
+    top: 6px;
+    outline: none !important;
+    -webkit-appearance: none;
+    padding: 1px 4px 3px 8px;
+    opacity: 0.8;
+    border-radius: 5px;
+    color: #fff;
+    background: #0d0d0d;
+    cursor: pointer;
+    font-family: monospace;
+    font-size: 12px;
+    transition: all 50ms ease;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
