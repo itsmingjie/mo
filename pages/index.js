@@ -7,7 +7,7 @@ import styled from "styled-components";
 
 import Sidebar from "../components/Sidebar";
 import Topbar from "../components/Topbar";
-import Editor from "../components/Editor";
+import Editor from "../components/Editor/Editor";
 import NotesList from "../components/NotesList";
 
 const Main = styled.div`
@@ -50,7 +50,7 @@ const App = () => {
       <Head>
         <title>墨 · Mo</title>
         <link
-          href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap"
           rel="stylesheet"
         />
       </Head>

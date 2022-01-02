@@ -6,7 +6,7 @@ import StarterKit from "@tiptap/starter-kit";
 import TiptapLink from "@tiptap/extension-link";
 import TiptapTypography from "@tiptap/extension-typography";
 import TiptapLowlight from "@tiptap/extension-code-block-lowlight";
-import Codeblock from "./Codeblock";
+import { EditorCodeblock } from "./Codeblock";
 
 import lowlight from "lowlight";
 
@@ -59,9 +59,14 @@ const Editor = ({ content, setContent, sendHandler }) => {
       TiptapTypography,
       TiptapLowlight.extend({
         addNodeView() {
-          return ReactNodeViewRenderer(Codeblock);
+          return ReactNodeViewRenderer(EditorCodeblock);
         },
-      }).configure({ lowlight }),
+      }).configure({
+        HTMLAttributes: {
+          className: "test",
+        },
+        lowlight,
+      }),
     ],
     autofocus: true,
 
@@ -73,6 +78,7 @@ const Editor = ({ content, setContent, sendHandler }) => {
 
   // clear editor content and send data
   const clearAndSend = () => {
+    // TODO: disable send button and set loading state on click
     editor.commands.setContent("");
     sendHandler();
   };

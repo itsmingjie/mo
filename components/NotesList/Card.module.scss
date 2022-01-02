@@ -23,9 +23,23 @@
   text-decoration: none;
 }
 
-.content {
+.card_content {
   color: #323232;
   font-size: 14px;
   position: relative;
   overflow: hidden;
+  margin-top: 8px;
+}
+
+.card_menu_trigger {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  display: inline-block;
+  color: #7d7d7d; 
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
 }

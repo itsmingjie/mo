@@ -1,12 +1,33 @@
 import { NodeViewWrapper, NodeViewContent } from "@tiptap/react";
 import styles from "./Codeblock.module.scss";
 
-const Codeblock = ({
+/** a stripped down version with only single language support */
+const ViewerCodeblock = ({
+  node: {
+    attrs: { language: defaultLanguage },
+  }
+}) => (
+  <NodeViewWrapper className={styles.code_block}>
+    <select
+      contentEditable={false}
+      defaultValue={defaultLanguage}
+      disabled
+    >
+      <option value={defaultLanguage}>{defaultLanguage}</option>
+    </select>
+    <pre>
+      <NodeViewContent as="code" />
+    </pre>
+  </NodeViewWrapper>
+);
+
+
+const EditorCodeblock = ({
   node: {
     attrs: { language: defaultLanguage },
   },
   updateAttributes,
-  extension,
+  extension
 }) => (
   <NodeViewWrapper className={styles.code_block}>
     <select
@@ -28,4 +49,4 @@ const Codeblock = ({
   </NodeViewWrapper>
 );
 
-module.exports = Codeblock;
+module.exports = { EditorCodeblock, ViewerCodeblock };
