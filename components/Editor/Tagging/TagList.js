@@ -66,4 +66,5 @@ const TagList = forwardRef((props, ref) => {
   );
 });
 
+TagList.displayName = "TagList";
 module.exports = TagList;
