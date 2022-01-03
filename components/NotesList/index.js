@@ -7,10 +7,6 @@ import styles from "./NotesList.module.scss";
 const NotesList = ({ notes, setNotes }) => {
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchNotes();
-  }, []);
-
   const fetchNotes = async (page) => {
     const limit = 10;
     page = page || 0;
@@ -21,6 +17,10 @@ const NotesList = ({ notes, setNotes }) => {
     setNotes(notes.data);
     setLoading(false);
   };
+
+  useEffect(() => {
+    fetchNotes();
+  }, []);
 
   return (
     <>

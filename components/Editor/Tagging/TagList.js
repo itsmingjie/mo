@@ -1,12 +1,7 @@
-import React, {
-  useState,
-  useEffect,
-  forwardRef,
-  useImperativeHandle,
-} from "react";
+import { useState, useEffect, forwardRef, useImperativeHandle } from "react";
 import styles from "./TagList.module.scss";
 
-export default forwardRef((props, ref) => {
+const TagList = forwardRef((props, ref) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const selectItem = (index) => {
@@ -70,3 +65,5 @@ export default forwardRef((props, ref) => {
     </div>
   );
 });
+
+module.exports = TagList;
