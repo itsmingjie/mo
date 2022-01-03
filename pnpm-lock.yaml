@@ -5,6 +5,7 @@ specifiers:
   '@supabase/supabase-js': ^1.29.1
   '@tiptap/extension-code-block-lowlight': ^2.0.0-beta.62
   '@tiptap/extension-link': ^2.0.0-beta.33
+  '@tiptap/extension-mention': ^2.0.0-beta.90
   '@tiptap/extension-typography': ^2.0.0-beta.19
   '@tiptap/react': ^2.0.0-beta.102
   '@tiptap/starter-kit': ^2.0.0-beta.164
@@ -17,12 +18,14 @@ specifiers:
   react-spinners-kit: ^1.9.1
   sass: ^1.45.1
   styled-components: ^5.3.3
+  tippy.js: ^6.3.7
 
 dependencies:
   '@styled-icons/octicons': 10.44.0_c17876e09d792e0c7b0f44e49f814625
   '@supabase/supabase-js': 1.29.1
   '@tiptap/extension-code-block-lowlight': 2.0.0-beta.62
   '@tiptap/extension-link': 2.0.0-beta.33
+  '@tiptap/extension-mention': 2.0.0-beta.90
   '@tiptap/extension-typography': 2.0.0-beta.19
   '@tiptap/react': 2.0.0-beta.102_react-dom@17.0.2+react@17.0.2
   '@tiptap/starter-kit': 2.0.0-beta.164
@@ -33,6 +36,7 @@ dependencies:
   react-spinners-kit: 1.9.1
   sass: 1.45.1
   styled-components: 5.3.3_react-dom@17.0.2+react@17.0.2
+  tippy.js: 6.3.7
 
 devDependencies:
   eslint: 8.5.0
@@ -709,6 +713,16 @@ packages:
       '@tiptap/core': 2.0.0-beta.159
     dev: false
 
+  /@tiptap/extension-mention/2.0.0-beta.90:
+    resolution: {integrity: sha512-YQRKz93Y6+6noVwOXc6F4wKl47uBHNGpqlkpjP5h87F1gubLtYwyIJ8HsUwGM5qTvIln5nz7CiVN2I2H8kgJpA==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.1
+    dependencies:
+      '@tiptap/suggestion': 2.0.0-beta.85
+      prosemirror-model: 1.16.0
+      prosemirror-state: 1.3.4
+    dev: false
+
   /@tiptap/extension-ordered-list/2.0.0-beta.27_@tiptap+core@2.0.0-beta.159:
     resolution: {integrity: sha512-apFDeignxdZb3cA3p1HJu0zw1JgJdBYUBz1r7f99qdNybYuk3I/1MPUvlOuOgvIrBB/wydoyVDP+v9F7QN3tfQ==}
     peerDependencies:
@@ -783,6 +797,16 @@ packages:
       '@tiptap/extension-paragraph': 2.0.0-beta.23_@tiptap+core@2.0.0-beta.159
       '@tiptap/extension-strike': 2.0.0-beta.27_@tiptap+core@2.0.0-beta.159
       '@tiptap/extension-text': 2.0.0-beta.15_@tiptap+core@2.0.0-beta.159
+    dev: false
+
+  /@tiptap/suggestion/2.0.0-beta.85:
+    resolution: {integrity: sha512-YpVKtP9wLVLvPKpZHVr+8cy+AbaTn1wF1PLGhNoazGCSi+v6PHD3DG2iRfC1PKzMa5PEiHI1UIdJq9xrtu9zXg==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.1
+    dependencies:
+      prosemirror-model: 1.16.0
+      prosemirror-state: 1.3.4
+      prosemirror-view: 1.23.5
     dev: false
 
   /@types/json5/0.0.29:

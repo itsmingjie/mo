@@ -1,14 +1,16 @@
 import { ListOrdered, ListUnordered } from "@styled-icons/octicons";
+import lowlight from "lowlight";
 
 // Editor setup
 import { useEditor, EditorContent, ReactNodeViewRenderer } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
-import TiptapLink from "@tiptap/extension-link";
-import TiptapTypography from "@tiptap/extension-typography";
-import TiptapLowlight from "@tiptap/extension-code-block-lowlight";
-import { EditorCodeblock } from "./Codeblock";
+import TLink from "@tiptap/extension-link";
+import TTypography from "@tiptap/extension-typography";
+import TLowlight from "@tiptap/extension-code-block-lowlight";
+import TMention from "@tiptap/extension-mention";
 
-import lowlight from "lowlight";
+import { EditorCodeblock } from "./Codeblock";
+import TSuggestion from './Tagging/suggestion';
 
 import styles from "./Editor.module.scss";
 
@@ -52,12 +54,15 @@ const MenuBar = ({ editor, sendHandler }) => {
 
 const Editor = ({ content, setContent, sendHandler }) => {
   const editor = useEditor({
-    content: content || "",
+    content: content || null,
     extensions: [
-      StarterKit,
-      TiptapLink,
-      TiptapTypography,
-      TiptapLowlight.extend({
+      StarterKit.configure({
+        heading: false,
+        codeBlock: false,
+      }),
+      TLink,
+      TTypography,
+      TLowlight.extend({
         addNodeView() {
           return ReactNodeViewRenderer(EditorCodeblock);
         },
@@ -66,6 +71,12 @@ const Editor = ({ content, setContent, sendHandler }) => {
           className: "test",
         },
         lowlight,
+      }),
+      TMention.configure({
+        HTMLAttributes: {
+          class: 'tag',
+        },
+        suggestion: TSuggestion,
       }),
     ],
     autofocus: true,

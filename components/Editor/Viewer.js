@@ -6,7 +6,10 @@ import StarterKit from "@tiptap/starter-kit";
 import TiptapLink from "@tiptap/extension-link";
 import TiptapTypography from "@tiptap/extension-typography";
 import TiptapLowlight from "@tiptap/extension-code-block-lowlight";
+import TMention from "@tiptap/extension-mention";
+
 import { ViewerCodeblock } from "./Codeblock";
+import TSuggestion from './Tagging/suggestion';
 
 import lowlight from "lowlight";
 
@@ -22,6 +25,12 @@ const Viewer = ({ content }) => {
           return ReactNodeViewRenderer(ViewerCodeblock);
         },
       }).configure({ lowlight }),
+      TMention.configure({
+        HTMLAttributes: {
+          class: 'tag',
+        },
+        suggestion: TSuggestion
+      }),
     ],
     editable: false,
   });

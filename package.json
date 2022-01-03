@@ -12,6 +12,7 @@
     "@supabase/supabase-js": "^1.29.1",
     "@tiptap/extension-code-block-lowlight": "^2.0.0-beta.62",
     "@tiptap/extension-link": "^2.0.0-beta.33",
+    "@tiptap/extension-mention": "^2.0.0-beta.90",
     "@tiptap/extension-typography": "^2.0.0-beta.19",
     "@tiptap/react": "^2.0.0-beta.102",
     "@tiptap/starter-kit": "^2.0.0-beta.164",
@@ -21,7 +22,8 @@
     "react-dom": "17.0.2",
     "react-spinners-kit": "^1.9.1",
     "sass": "^1.45.1",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "tippy.js": "^6.3.7"
   },
   "devDependencies": {
     "eslint": "8.5.0",
