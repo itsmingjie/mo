@@ -11,9 +11,8 @@ import Editor from "../components/Editor/Editor";
 import NotesList from "../components/NotesList";
 
 const Main = styled.div`
-  display: block;
-  flex: 1;
-  flex-basis: auto;
+  display: flex;
+  flex-flow: column;
   box-sizing: border-box;
   width: 640px !important;
   padding: 0;
