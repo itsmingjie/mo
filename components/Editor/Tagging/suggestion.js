@@ -1,15 +1,30 @@
 import { ReactRenderer } from "@tiptap/react";
 import tippy from "tippy.js";
 import TagList from "./TagList";
+import debounce from "debounce-promise";
+
+const fetchSuggestions = (query) => {
+  return new Promise((resolve) => {
+    fetch(`/api/tags?q=${query}`)
+      .then((res) => res.json())
+      .then((data) => {
+        resolve(data.tags);
+      });
+  });
+};
+const debouncedFetch = debounce(fetchSuggestions, 150);
 
 const suggestion = {
   char: "#",
   items: ({ editor, query }) => {
-    return new Promise((resolve) => {
-      fetch(`/api/tags?q=${query}`)
-        .then((res) => res.json())
-        .then((data) => {
-          resolve(data.tags);
+    return new Promise((resolve, reject) => {
+      debouncedFetch(query)
+        .then((tags) => {
+          resolve(tags);
+        })
+        .catch((err) => {
+          console.error(err);
+          reject(err);
         });
     });
   },

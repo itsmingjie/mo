@@ -9,6 +9,7 @@ specifiers:
   '@tiptap/extension-typography': ^2.0.0-beta.19
   '@tiptap/react': ^2.0.0-beta.102
   '@tiptap/starter-kit': ^2.0.0-beta.164
+  debounce-promise: ^3.1.2
   eslint: 8.5.0
   eslint-config-next: 12.0.7
   lowlight: '1'
@@ -29,6 +30,7 @@ dependencies:
   '@tiptap/extension-typography': 2.0.0-beta.19
   '@tiptap/react': 2.0.0-beta.102_react-dom@17.0.2+react@17.0.2
   '@tiptap/starter-kit': 2.0.0-beta.164
+  debounce-promise: 3.1.2
   lowlight: 1.20.0
   next: 12.0.7_f974e9ff7578644a22f9bc9f9222c405
   react: 17.0.2
@@ -1509,6 +1511,10 @@ packages:
   /data-uri-to-buffer/3.0.1:
     resolution: {integrity: sha512-WboRycPNsVw3B3TL559F7kuBUM4d8CgMEvk6xEJlOp7OBPjt6G7z8WMWlD2rOFZLk6OYfFIUGsCOWzcQH9K2og==}
     engines: {node: '>= 6'}
+    dev: false
+
+  /debounce-promise/3.1.2:
+    resolution: {integrity: sha512-rZHcgBkbYavBeD9ej6sP56XfG53d51CD4dnaw989YX/nZ/ZJfgRx/9ePKmTNiUiyQvh4mtrMoS3OAWW+yoYtpg==}
     dev: false
 
   /debug/2.6.9:
