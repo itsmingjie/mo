@@ -3,6 +3,7 @@ import styles from "./TagList.module.scss";
 
 const TagList = forwardRef((props, ref) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   const selectItem = (index) => {
     const item = props.items[index];
@@ -54,7 +55,7 @@ const TagList = forwardRef((props, ref) => {
       {props.items.map((item, index) => (
         <button
           className={
-            styles.item + ` ${index === selectedIndex ? "is-selected" : ""}`
+            styles.item + ` ${index === selectedIndex ? styles.selected : ""}`
           }
           key={index}
           onClick={() => selectItem(index)}

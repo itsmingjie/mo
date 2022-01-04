@@ -84,15 +84,17 @@ button {
   }
 
   .tag {
-    border: 1px solid #000;
-    border-radius: 0.4rem;
-    box-decoration-break: clone;
-    padding: 0.1rem 0.3rem;
+    color: #5783f7;
+    cursor: pointer;
+    background-color: #eef3fe;
+    padding: 4px;
+    border-radius: 6px;
   }
 
   p {
     min-height: 20px;
     margin: 0;
+    line-height: 1.8;
   }
 
   ul,

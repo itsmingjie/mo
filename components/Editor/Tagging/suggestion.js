@@ -1,33 +1,55 @@
 import { ReactRenderer } from "@tiptap/react";
 import tippy from "tippy.js";
 import TagList from "./TagList";
+
+// uh oh, say hello to frequent dependabot warnings for lodash
 import debounce from "debounce-promise";
 
-const fetchSuggestions = (query) => {
+const SUGGESTION_CACHE = {};
+
+const getItems = ({ editor, query }) => {
+  const appendQuery = (query, items) => {
+    return query !== "" && items.includes(query) ? items : [...items, query];
+  };
+
+  const fetchSuggestions = (query) => {
+    return new Promise((resolve) => {
+      fetch(`/api/tags?q=${query}`)
+        .then((res) => res.json())
+        .then((data) => {
+          // store into local cache
+          const processedTags = appendQuery(query, data.tags);
+
+          SUGGESTION_CACHE[query] = {
+            tags: processedTags,
+            timestamp: Date.now(),
+          };
+
+          resolve(processedTags);
+        });
+    });
+  };
+  const debounceSuggestions = debounce(fetchSuggestions, 500);
+
+  if (SUGGESTION_CACHE[query]) {
+    // reduce to local cache if it has been less than a minute since the timestamp of the cache
+    const { timestamp, tags } = SUGGESTION_CACHE[query];
+    if (timestamp + 60 * 1000 > Date.now()) {
+      return tags;
+    }
+  }
+
+  // fallback to fetching from the server
   return new Promise((resolve) => {
-    fetch(`/api/tags?q=${query}`)
-      .then((res) => res.json())
-      .then((data) => {
-        resolve(data.tags);
-      });
+    debounceSuggestions(query).then((tags) => {
+      resolve(tags);
+    });
   });
 };
-const debouncedFetch = debounce(fetchSuggestions, 150);
 
 const suggestion = {
   char: "#",
-  items: ({ editor, query }) => {
-    return new Promise((resolve, reject) => {
-      debouncedFetch(query)
-        .then((tags) => {
-          resolve(tags);
-        })
-        .catch((err) => {
-          console.error(err);
-          reject(err);
-        });
-    });
-  },
+  items: getItems,
 
   render: () => {
     let component;

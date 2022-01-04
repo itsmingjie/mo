@@ -10,7 +10,6 @@
 }
 
 .item {
-  background: transparent;
   border: 1px solid transparent;
   border-radius: 0.4rem;
   display: block;
@@ -18,8 +17,11 @@
   padding: 0.2rem 0.4rem;
   text-align: left;
   width: 100%;
+  background-color: #fff;
+  transition: all 0.1s ease;
+}
 
-  &.is-selected {
-    border-color: #000;
-  }
+.selected {
+  color: #5783f7;
+  background-color: #eef3fe;
 }
